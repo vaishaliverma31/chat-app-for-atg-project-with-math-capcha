@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up{% endblock title %}
+{% block body %}
+
+<style>
+    .container1 {
+        position: relative;
+        height: 140px;
+        width: 140px;
+        bottom: -1px;
+        transform: translate(10%, -20%);
+        padding: 20px 10px;
+        box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.35);
+    }
+    .container1 #input_val {
+        height: 43px;
+        width: 120px;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .container1 #btn {
+        height: 38px;
+        width: 120px;
+        color: white;
+        font-size: 20px;
+        background-color: #487eb0;
+        cursor: pointer;
+        border: 1px solid white;
+    }
+
+    .container1 #operation {
+        font-size: 22px;
+        font-weight: bold;
+        color: black;
+    }
+
+
+
+</style>
+<form class="container" action="{% url 'signup' %}" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">first_name</label>
+        <input type="text" class="form-control" id="exampleInputfirst_name1" name="first_name">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">last_name</label>
+        <input type="text" class="form-control" id="exampleInputfirst_name1" name="last_name">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">confirm_Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="confirm_password">
+    </div>
+      <div class="container1">
+        <input type="text" id="input_val"/>
+        <p id="operation" ><span id="num1">1</span> + <span id="num2">20</span></p>
+        <button id="btn" class="btn btn-primary" >Submit</button>
+    </div>
+    </body>
+
+    {% if error %}
+    <h1> {{error}}</h1>
+    {% endif %}
+</form>{% endblock body %}
+{% block script %}{% endblock script %}
